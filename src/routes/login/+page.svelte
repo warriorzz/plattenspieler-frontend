@@ -1,7 +1,9 @@
 <script lang="ts">
     import { goto } from "$app/navigation";
     import Loading from "$lib/Loading.svelte";
+    import Message from "$lib/Message.svelte";
 
+    export let data;
     const backendBaseUrl = "https://plattenspieler.bjarn.ee/api";
     let username = "";
     let password = "";
@@ -93,18 +95,21 @@
     </div>
 {/if}
 
-<h3>Login</h3>
-<input bind:value={username} type="text" placeholder="Username" />
-<input bind:value={password} type="password" placeholder="Password" />
-<button on:click={login_c}>Login</button>
-<Loading loading={loading_c} />
+<div id="cont">
+    <h3>Login</h3>
+    <input bind:value={username} type="text" placeholder="Username" />
+    <input bind:value={password} type="password" placeholder="Password" />
+    <button on:click={login_c}>Login</button>
+    <Loading loading={loading_c} />
 
-<h3>...or Register</h3>
-<input bind:value={usernamer} type="text" placeholder="Username" />
-<input bind:value={passwordr} type="password" placeholder="Password" />
-<input bind:value={tokenr} type="password" placeholder="Token" />
-<button on:click={register_c}>Register</button>
-<Loading loading={loading_r} />
+    <h3>...or Register</h3>
+    <input bind:value={usernamer} type="text" placeholder="Username" />
+    <input bind:value={passwordr} type="password" placeholder="Password" />
+    <input bind:value={tokenr} type="password" placeholder="Token" />
+    <button on:click={register_c}>Register</button>
+    <Loading loading={loading_r} />
+</div>
+<Message {data} />
 
 <style>
     * {
@@ -120,5 +125,12 @@
     #berror {
         margin: auto;
         margin-right: 10px;
+    }
+
+    #cont {
+        max-width: 100%;
+        max-height: 100%;
+        margin-left: 20px;
+        margin-right: 20px;
     }
 </style>

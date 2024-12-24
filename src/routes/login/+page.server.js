@@ -9,7 +9,7 @@ export async function load({ cookies, url }) {
   }
 
   if (storedId === null || storedId === "") {
-    return {};
+    return { success: false };
   }
 
   let accountInfo = await get_handle(storedId, "/user/account").then(

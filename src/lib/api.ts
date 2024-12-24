@@ -1,6 +1,6 @@
 import { redirect } from "@sveltejs/kit";
 
-const backendBaseUrl = "https://plattenspieler-api.bjarn.ee/api";
+const backendBaseUrl = "https://plattenspieler.bjarn.ee/api";
 
 export async function get(
   sessionid: string,
